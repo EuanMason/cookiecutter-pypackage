@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "cookiecutter-pypackage"
-version = "1.1.1"
+version = "0.0.1"
 description = "Cookiecutter template for a Python package"
 license = "BSD-3-Clause"
 authors = ["Euan Mason <me@euanmason.com>"]
@@ -19,7 +19,6 @@ include = [
 [tool.poetry.dependencies]
 python = ">=3.11.*"
 cookiecutter = "1.7.2"
-pre_commit = {version = "^3.6.2", optional=true}
 
 pytest = {version = "^6.2.3", optional=true}
 pytest-cookies = {version = "^0.6.1", optional=true}

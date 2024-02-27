@@ -42,7 +42,7 @@ def init_git():
 
 def install_pre_commit_hooks():
     execute(sys.executable, "-m", "pip", "install", "pre-commit==2.12.0")
-    execute(sys.executable, "-m", "pre_commit", "install")
+    execute(sys.executable, "-m", "pre-commit", "install")
 
 
 if __name__ == '__main__':
