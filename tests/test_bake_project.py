@@ -9,6 +9,10 @@ from typing import List
 import pytest
 from cookiecutter.utils import rmtree
 
+from click.testing import CliRunner
+
+import importlib
+
 # logging.basicConfig(level=logging.DEBUG)
 
 
@@ -219,7 +223,6 @@ def test_docstrings_style(cookies):
     "args",
     [
         ({"command_line_interface": "No command-line interface"}, False),
-        ({"command_line_interface": "click"}, True),
     ],
 )
 def test_bake_with_no_console_script(cookies, args):
@@ -235,14 +238,19 @@ def test_bake_with_no_console_script(cookies, args):
 
 
 def test_bake_with_console_script_cli(cookies):
-    context = {"command_line_interface": "click"}
+    context = {"command_line_interface|lower": "click"}
     result = cookies.bake(extra_context=context)
     project_path, project_slug, project_dir = project_info(result)
     module_path = os.path.join(project_dir, "cli.py")
+    module_name = ".".join([project_slug, "cli"])
+    spec = importlib.util.spec_from_file_location(module_name, module_path)
+    cli = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cli)
+    runner = CliRunner()
+    noarg_result = runner.invoke(cli.main)
+    assert noarg_result.exit_code == 0
+    assert project_slug in noarg_result.output
 
-    out = execute([sys.executable, module_path], project_dir)
-    assert project_slug in out
-
-    out = execute([sys.executable, module_path, "--help"], project_dir)
-
-    assert "Show this message and exit." in out
+    help_result = runner.invoke(cli.main, ["--help"])
+    assert help_result.exit_code == 0
+    assert "Show this message and exit." in help_result.output
