@@ -1,15 +1,8 @@
 # History
 
-## v1.1.1
+## v0.0.1
 
-* Centralize most of the tool configuration in the `setup.cfg` file
-
-## v1.1.0
-
-* Add `use_mypy` choice to make mypy optional
-
-## v1.0
-***first release with the following features:***
+***first prerelease with the following features:***
 
 * [Poetry](https://python-poetry.org/): Manage dependency, build and release
 * [Mkdocs](https://www.mkdocs.org): Writing your docs in markdown style
@@ -24,7 +17,7 @@
 * Command line interface using [Click](https://click.palletsprojects.com/en/8.0.x/) (optional)
 * [bump2version](https://github.com/c4urself/bump2version): Pre-configured version bumping with a single command
 * Continuous Integration/Deployment by [GitHub actions](https://github.com/features/actions), includes:
-    - publish dev build/official release to TestPyPI/PyPI automatically when CI success
-    - publish documents automatically when CI success
-    - extract changelog from CHANGELOG and integrate with release notes automatically
+  * publish dev build/official release to TestPyPI/PyPI automatically when CI success
+  * publish documents automatically when CI success
+  * extract changelog from CHANGELOG and integrate with release notes automatically
 * Host your documentation from [GitHub Pages](https://pages.github.com) with zero-config

@@ -7,7 +7,7 @@ license = "BSD-3-Clause"
 authors = ["Euan Mason <me@euanmason.com>"]
 readme = "README.md"
 repository = "https://github.com/EuanMason/cookiecutter-pypackage/"
-documentation = "https://waynerv.github.io/cookiecutter-pypackage/"
+documentation = "https://EuanMason.github.io/cookiecutter-pypackage/"
 keywords = ['cookiecutter', 'template', 'package']
 
 include = [

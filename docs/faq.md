@@ -6,7 +6,6 @@
     - `release.yml`: define release & publish workflow, run on every tag push, create GitHub release,
     publish docs to GitHub Pages and built package to PyPI.
 
-
 ???+ Question
     # Why not travis CI?
     Travis CI is a great service, however, github actions is super convenient, less configuration

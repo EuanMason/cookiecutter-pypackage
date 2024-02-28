@@ -17,6 +17,7 @@ poetry install
 ```
 
 Then execute:
+
 ```
 $project_slug --help
 ```
