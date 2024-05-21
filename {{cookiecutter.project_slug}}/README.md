@@ -16,8 +16,8 @@
 {% if is_open_source %}
 
 * Documentation: <https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}>
-* GitHub: <<https://github.com/{{> cookiecutter.github_username }}/{{ cookiecutter.project_slug }}>
-* PyPI: <<https://pypi.org/project/{{> cookiecutter.project_slug }}/>
+* GitHub: <https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}> {{< mdl-disable "<!-- markdownlint-disable MD034 -->" >}}
+* PyPI: <https://pypi.org/project/{{ cookiecutter.project_slug }}/> {{< mdl-disable "<!-- markdownlint-disable MD034 -->" >}}
 * Free software: {{ cookiecutter.open_source_license }}
 {% endif %}
 

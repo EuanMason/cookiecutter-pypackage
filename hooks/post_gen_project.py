@@ -48,8 +48,24 @@ def init_git():
 
 
 def install_pre_commit_hooks():
-    execute(sys.executable, "-m", "pip", "install", "pre-commit==3.6.2")
+    execute(sys.executable, "-m", "pip", "install", "pre-commit", "--user")
     execute(sys.executable, "-m", "pre_commit", "install")
+
+
+def install_poetry():
+    execute(sys.executable, "-m", "pip", "install", "poetry", "--user")
+    execute(
+        sys.executable,
+        "-m",
+        "poetry",
+        "install",
+        "-E",
+        "doc",
+        "-E",
+        "dev",
+        "-E",
+        "test",
+    )
 
 
 if __name__ == "__main__":
@@ -67,6 +83,15 @@ if __name__ == "__main__":
         print(e)
 
     if "{{ cookiecutter.install_precommit_hooks }}" == "y":
+        try:
+            install_pre_commit_hooks()
+        except Exception as e:
+            print(str(e))
+            print(
+                "Failed to install pre-commit hooks. Please run `pre-commit install` by your self. For more on pre-commit, please refer to https://pre-commit.com"
+            )
+
+    if "{{ cookiecutter.install_poetry }}" == "y":
         try:
             install_pre_commit_hooks()
         except Exception as e:
