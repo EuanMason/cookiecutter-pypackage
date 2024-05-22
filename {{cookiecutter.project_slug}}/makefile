@@ -8,7 +8,7 @@ format:
 	black $(sources) tests
 
 lint:
-	flake8 $(sources) tests
+	# Deprecated: flake8 $(sources) tests
 	{%- if cookiecutter.use_mypy == 'y' %}
 	mypy $(sources) tests
 	{%- endif %}

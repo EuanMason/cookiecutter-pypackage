@@ -100,7 +100,7 @@ development. Please note this documentation assumes you already have
 
 ::
 
-5. When you're done making changes, check that your changes pass flake8. Since,
+5. Ignore. Flake8 not used any more. When you're done making changes, check that your changes pass flake8. Since,
    this package contains mostly templates the flake should be run for tests
    directory:
 
